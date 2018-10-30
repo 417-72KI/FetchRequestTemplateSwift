@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DailyTransaction" representedClassName="DailyTransaction" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="detailSet" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="DailyTransactionDetail" syncable="YES"/>
+    </entity>
+    <entity name="DailyTransactionDetail" representedClassName="DailyTransactionDetail" syncable="YES" codeGenerationType="class">
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="Transaction" representedClassName="Transaction" syncable="YES" codeGenerationType="class">
+        <attribute name="accountId" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="dailySet" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="DailyTransaction" syncable="YES"/>
+    </entity>
+    <fetchRequest name="AllTransactions" entity="Transaction"/>
+    <fetchRequest name="TransactionWithAccountId" entity="Transaction" predicateString="accountId == $accountId"/>
+    <fetchRequest name="TransactionWithAccountIdAndMonth" entity="Transaction" predicateString="accountId == $accountId AND date == $date"/>
+    <elements>
+        <element name="Transaction" positionX="5143.38671875" positionY="516.0625" width="132.6328125" height="90"/>
+        <element name="DailyTransactionDetail" positionX="5447.4453125" positionY="522.60546875" width="128" height="75"/>
+        <element name="DailyTransaction" positionX="5297.20703125" positionY="520.9375" width="128" height="75"/>
+    </elements>
+</model>
