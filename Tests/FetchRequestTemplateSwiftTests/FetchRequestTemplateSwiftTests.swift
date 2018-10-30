@@ -12,7 +12,7 @@ final class FetchRequestTemplateSwiftTests: XCTestCase {
             return
         }
 
-        let fooBinary = productsDirectory.appendingPathComponent("FetchRequestTemplateSwift")
+        let fooBinary = productsDirectory.appendingPathComponent("frts")
 
         let process = Process()
         process.executableURL = fooBinary

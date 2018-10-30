@@ -7,7 +7,7 @@ default: clean build
 
 clean:
 	swift package clean
-	rm -rf .build ./$(project_name).xcodeproj
+	git clean -xdf
 
 xcode:
 	swift package generate-xcodeproj
